@@ -1,0 +1,100 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family:monospace;
+    font-size: 1.6em;
+}
+.cont {
+    width: 60%;
+    margin: 0 auto;
+    padding-top: 0;
+}
+.card-top {
+    text-align: center;
+}
+.card-center {
+    padding: 1% 2%;
+}
+.btn {
+    height: 40px;
+    text-transform: uppercase;
+    background-color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.select-btn {
+    width:18%;
+    margin-right: 1%;
+    color: teal;
+    border: 1px solid teal;
+}
+.select-btn:hover {
+    box-shadow: teal 2px 2px 2px;
+}
+.btn:focus{
+    outline: none;
+}
+
+input[type="text"] {
+    width:78%;
+    height: 34px;
+    border: 1px solid teal;
+    border-radius: 5px;
+}
+input[type="text"]:focus{
+    outline: none;
+}
+.control .done-btn {
+    width: 32%;
+    color: green;
+    border: 1px solid green;
+}
+.control .done-btn:hover {
+    box-shadow: green 2px 2px 2px;
+}
+.control .restore-btn {
+    width: 32%;
+    color: blue;
+    border: 1px solid blue;
+}
+.control .restore-btn:hover {
+    box-shadow: blue 2px 2px 2px;
+}
+.control .remove-btn {
+    width: 32%;
+    color: red;
+    border: 1px solid red;
+}
+.control .remove-btn:hover {
+    box-shadow: red 2px 2px 2px;
+}
+.tasks {
+    list-style: none;
+}
+
+.task-title {
+    padding: 1% 0;
+}
+
+.task-title:nth-child(2n){
+    background-color: #efefef;
+}
+.done-btn-2 {
+    margin-left: 45%;
+    margin-right: 2%;
+    width: 15%;
+    color: green;
+    border: 1px solid green;
+}
+
+.done-btn-2:hover {
+    box-shadow: green 2px 2px 2px;
+}
+.remove-btn-2 {
+    width: 15%;
+    color: red;
+    border: 1px solid red;
+}
+.remove-btn-2:hover {
+    box-shadow: red 2px 2px 2px;
+}

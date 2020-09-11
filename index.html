@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="style.css">
+	<title>ToDo</title>
+</head>
+<body>
+	<div class="cont">
+		<div class="card">
+			<div class="card-top">
+				<h3 class="title">ToDo List</h3>
+			</div><!-- card-top-->
+			<div class="card-center">
+				<div class="input">
+				<button type = "button" class="btn select-btn" id="select-btn">Select All</button>
+				<input class = "input-text" id ="input" type ="text" name = "task" placeholder="Write something..." required>
+				</div><!--input-->
+				<br>
+				<div class="control">
+					<button type="button" class="btn done-btn" id="done-action">Done</button>
+					<button type="button" class="btn restore-btn" id="restore-action">Restore</button>
+					<button type="button" class="btn remove-btn" id="remove-action">Remove</button>
+				</div><!--control-->
+			</div><!-- card-center-->
+			<div class="card-bottom">
+				<ul class="tasks" id="tasks-list">
+					<li class="task-title" id="task-title">
+						<div >
+						<input type="checkbox" id="check" name="checkbox">
+						<label for = "check">
+						<span >Task1</span>
+						</label>
+						<button type="button" class="btn done-btn-2" id="done-btn-2">Done</button>
+						<button type="button" class="btn remove-btn-2" id="remove-btn-2">Remove</button>
+				  </div>
+				</li><!--tasks-title-->
+
+				<li class="task-title" id="task-title">
+					<div >
+					<input type="checkbox" id="check2" name="checkbox">
+					<label for = "check2">
+					<span>Task2</span>
+					</label>
+					<button type="button" class="btn done-btn-2" id="done-btn-2">Done</button>
+					<button type="button" class="btn remove-btn-2" id="remove-btn-2">Remove</button>
+			  </div>
+			</li><!--tasks-title-->
+
+			<li class="task-title" id="task-title">
+				<div>
+				<input type="checkbox" id="check3" name="checkbox">
+				<label for = "check3">
+				<span >Task3</span>
+				</label>
+				<button type="button" class="btn done-btn-2" id="done-btn-2">Done</button>
+				<button type="button" class="btn remove-btn-2" id="remove-btn-2">Remove</button>
+		  </div>
+		</li><!--tasks-title-->
+
+		<li class="task-title" id="task-title">
+			<div>
+			<input type="checkbox" id="check4" name="checkbox">
+			<label for = "check4">
+			<span >Task4</span>
+			</label>
+			<button type="button" class="btn done-btn-2" id="done-btn-2">Done</button>
+			<button type="button" class="btn remove-btn-2" id="remove-btn-2">Remove</button>
+	  </div>
+	</li><!--tasks-title-->
+
+	      </ul><!--tasks-list-->
+			</div><!--card-bottom-->
+		</div><!-- card-->
+	</div><!--cont-->
+
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+	<script src="script.js"></script>
+</body>
+</html>
