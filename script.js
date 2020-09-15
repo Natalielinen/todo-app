@@ -5,7 +5,7 @@ const inputElement = document.getElementById('input');
 const ulElement = document.getElementById('tasks-list');
 
 const todoList = [];//Данные
-
+//newTask();
 
 //добавляем обработчик событий для кнопки select all 
 selectAllBtn.addEventListener('click', () => {console.log('Hello!');});
@@ -20,14 +20,22 @@ inputElement.addEventListener('keydown', event =>
 {
     if(event.key === 'Enter' || event.keyCode === 13){
         
-        todoList.push(inputElement.value);
+        todoList.unshift({
+            content: inputElement.value,
+            done: false,
+            selected: false
+        });
         inputElement.value = '';
-        console.log(todoList);
+        newTask();
     
     }
     //console.log(event);
 });
 
+function newTask () {
+    ulElement.innerHTML = '';
+    for(let i = 0; i<todoList.length; i++){
+        const todoItem = todoList[i];
 //Создаем список
 const liElement = document.createElement('li');
 liElement.className = 'task-title';
@@ -39,33 +47,56 @@ const divElement = document.createElement('div');
 divElement.className = 'task-cont';
 liElement.append(divElement);
 
-const inputElement = document.createElement('input');
-inputElement.type = 'checkbox';
-inputElement.className = 'checkbox';
-divElement.append(inputElement);
+const checkboxElement = document.createElement('input');
+checkboxElement.type = 'checkbox';
+checkboxElement.className = 'checkbox';
+checkboxElement.id = 'todoItem' + i;
+checkboxElement.checked = todoItem.selected;
+divElement.append(checkboxElement);
 
 const labelElement = document.createElement('label');
 labelElement.className = 'label';
+if(todoItem.done){
+    labelElement.className += ' todoDone';
+};
+labelElement.setAttribute('for', 'todoItem' + i );
+labelElement.innerText = todoItem.content;
 divElement.append(labelElement);
 
 const btnDoneElement = document.createElement('button');
 btnDoneElement.className = 'btn done-btn-2';
+btnDoneElement.type = 'button';
+btnDoneElement.innerText = 'Done';
 divElement.append(btnDoneElement);
 
 const btnRemoveElement = document.createElement('button');
 btnRemoveElement.className = 'btn remove-btn-2';
+btnRemoveElement.type = 'button';
+btnRemoveElement.innerText = 'Remove';
 divElement.append(btnRemoveElement);
 
+btnDoneElement.addEventListener('click', () => {
+  todoItem.done = !todoItem.done;
+  newTask();
+});
+    };
+};
 
+document.getElementById('done-action').addEventListener('click', () => {
+    console.log('hey done');
+});
 
-//<li class="task-title" id="task-title">
-//	<div class="task-cont">
-//	<input class = "checkbox" type="checkbox" id="check" name="checkbox">
-//	<label class = "label" for = "check">Task1</label>
-//	<button type="button" class="btn done-btn-2" id="done-btn-2">Done</button>
-//	<button type="button" class="btn remove-btn-2" id="remove-btn-2">Remove</button>
-//	</div>
-//</li>
+document.getElementById('restore-action').addEventListener('click', () => {
+    console.log('hey restore')
+});
+
+document.getElementById('remove-action').addEventListener('click', () => {
+    console.log('hey remove');
+});
+
+//<button type="button" class="btn done-btn" id="done-action">Done</button>
+//<button type="button" class="btn restore-btn" id="restore-action">Restore</button>
+//<button type="button" class="btn remove-btn" id="remove-action">Remove</button>
 
 //MVC:
 //Model - данные
