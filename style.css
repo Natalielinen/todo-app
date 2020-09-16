@@ -80,20 +80,24 @@ input[type="text"]:focus{
     background-color: #efefef;
 }
 .done-btn-2 {
-    margin-left: 45%;
-    margin-right: 2%;
+    margin-left: 78%;
+    /*margin-right: 2%;*/
     width: 15%;
     color: green;
     border: 1px solid green;
+   
 }
 
 .done-btn-2:hover {
     box-shadow: green 2px 2px 2px;
 }
 .remove-btn-2 {
+    margin-left: 78%;
+    /*margin-right: 2%;*/
     width: 15%;
     color: red;
     border: 1px solid red;
+    
 }
 .remove-btn-2:hover {
     box-shadow: red 2px 2px 2px;
