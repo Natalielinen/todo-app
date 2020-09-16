@@ -1,14 +1,13 @@
 'use strict';
 
-const  selectAllBtn = document.getElementById('select-btn');
+
 const inputElement = document.getElementById('input');
 const ulElement = document.getElementById('tasks-list');
 
-const todoList = [];//Данные
+let todoList = [];//Данные
 //newTask();
 
-//добавляем обработчик событий для кнопки select all 
-selectAllBtn.addEventListener('click', () => {console.log('Hello!');});
+
   
 
 //добавляем обработчик событий для инпута
@@ -35,7 +34,7 @@ inputElement.addEventListener('keydown', event =>
 function newTask () {
     ulElement.innerHTML = '';
     for(let i = 0; i<todoList.length; i++){
-        const todoItem = todoList[i];
+        let todoItem = todoList[i];
 //Создаем список
 const liElement = document.createElement('li');
 liElement.className = 'task-title';
@@ -54,6 +53,10 @@ checkboxElement.id = 'todoItem' + i;
 checkboxElement.checked = todoItem.selected;
 divElement.append(checkboxElement);
 
+checkboxElement.addEventListener('change', () => {
+    todoItem.selected = checkboxElement.checked;
+});
+
 const labelElement = document.createElement('label');
 labelElement.className = 'label';
 if(todoItem.done){
@@ -63,35 +66,74 @@ labelElement.setAttribute('for', 'todoItem' + i );
 labelElement.innerText = todoItem.content;
 divElement.append(labelElement);
 
-const btnDoneElement = document.createElement('button');
-btnDoneElement.className = 'btn done-btn-2';
-btnDoneElement.type = 'button';
-btnDoneElement.innerText = 'Done';
-divElement.append(btnDoneElement);
+if(!todoItem.done){
+    const btnDoneElement = document.createElement('button');
+    btnDoneElement.className = 'btn done-btn-2';
+    btnDoneElement.type = 'button';
+    btnDoneElement.innerText = 'Done';
+    divElement.append(btnDoneElement);
 
-const btnRemoveElement = document.createElement('button');
+    btnDoneElement.addEventListener('click', () => {
+        todoItem.done = !todoItem.done;
+        newTask();
+      });
+}
+else {
+
+    const btnRemoveElement = document.createElement('button');
 btnRemoveElement.className = 'btn remove-btn-2';
 btnRemoveElement.type = 'button';
 btnRemoveElement.innerText = 'Remove';
 divElement.append(btnRemoveElement);
 
-btnDoneElement.addEventListener('click', () => {
-  todoItem.done = !todoItem.done;
-  newTask();
+btnRemoveElement.addEventListener('click', () => {
+     
+    todoList = todoList.filter(currentTodoItem => currentTodoItem!==todoItem);
+ newTask();
+
 });
+}
+
+
+
+
+
     };
-};
+
+ 
+
+};//new task
 
 document.getElementById('done-action').addEventListener('click', () => {
-    console.log('hey done');
+    for(const todoItem of todoList){
+        if(todoItem.selected){
+            todoItem.done = true;
+            todoItem.selected = false;
+        }
+    }
+    newTask();
 });
 
 document.getElementById('restore-action').addEventListener('click', () => {
-    console.log('hey restore')
+    for(const todoItem of todoList){
+        if(todoItem.selected){
+            todoItem.done = false;
+            todoItem.selected = false;
+        }
+    }
+    newTask();
 });
 
 document.getElementById('remove-action').addEventListener('click', () => {
-    console.log('hey remove');
+    todoList = todoList.filter = (todoItem => !todoItem.selected);
+    newTask();
+});
+
+document.getElementById('select-btn').addEventListener('click', () => {
+     for(const todoItem of todoList){
+         todoItem.selected = true;
+     }
+  newTask();
 });
 
 //<button type="button" class="btn done-btn" id="done-action">Done</button>
